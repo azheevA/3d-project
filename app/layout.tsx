@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import clsx from "clsx";
+import { Navbar } from "@/components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,10 +25,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="m-0 p-0 box-border">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={clsx(
+          geistSans.variable,
+          geistMono.variable,
+          "antialiased",
+          "bg-black text-[#e7e7e7] min-h-screen leading-1.5",
+        )}
       >
+        {/* <Navbar /> */}
         {children}
       </body>
     </html>
